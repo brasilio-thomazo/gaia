@@ -1,0 +1,311 @@
+:root {
+  --bg: #333;
+  --bg-dark: #363636;
+  --bg-light: #555555;
+  --border-color: #474747;
+  --border: 1px solid #474747;
+  --color: #ececec;
+  --color-light: #969696;
+  --primary: #e0481a;
+  --primary-light: #eb501c;
+  --primary-dark: #923c1f;
+  --secondary: #1a8fe0;
+  --success: #008000;
+  --warn: #ffa500;
+  --error: #fc4f4f;
+  --shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  --dropdown: rgba(50, 50, 50, 0.7);
+  --dropdown-color: #ececec;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg);
+  color: var(--color);
+}
+
+.input-box {
+  background-color: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.input-box label {
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.input-box input[type='text'],
+.input-box input[type='number'],
+.input-box input[type='password'],
+.input-box input[type='email'],
+.input-box input[type='date'],
+.input-box input[type='tel'],
+.input-box select {
+  flex: 1;
+  height: 30px;
+  outline: none;
+  border: none;
+  padding: 0 0.5rem;
+}
+
+.input-box .with-icon {
+  padding-right: 2rem !important;
+}
+
+.input-box > .icon {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: var(--secondary);
+  font-size: 1rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px;
+  padding: 0 0.5rem;
+}
+
+.input-box > .icon:hover {
+  color: var(--primary-light);
+}
+
+.input-box .dropdown {
+  position: absolute;
+  top: 100%;
+  margin-top: 0.5rem;
+  right: 0;
+  background-color: var(--dropdown);
+  color: var(--dropdown-color);
+  border: var(--border);
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-box .dropdown.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.input-group > p {
+  background-color: var(--bg-dark);
+  padding: 0.5rem;
+}
+
+.input-group .boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.input-group .box.line {
+  flex: 1 1 100%;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+}
+
+.box label {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+
+.box input[type='checkbox'],
+.box input[type='radio'] {
+  display: none;
+}
+
+.box input[type='checkbox'] + label,
+.box input[type='radio'] + label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.box input[type='checkbox']:checked + label,
+.box input[type='radio']:checked + label {
+  background-color: var(--secondary);
+}
+
+.box input[type='checkbox']:disabled + label,
+.box input[type='radio']:disabled + label {
+  text-decoration: line-through;
+}
+
+.dropdown li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdown li input[type='radio'] {
+  display: none;
+}
+
+.dropdown li label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropdown li input[type='radio']:checked + label {
+  background-color: var(--secondary);
+}
+
+button {
+  background-color: var(--primary);
+  color: var(--color);
+  border: none;
+  height: 30px;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+button:hover {
+  background-color: var(--primary-light);
+}
+
+button:disabled {
+  background-color: var(--primary-dark);
+  cursor: not-allowed;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: var(--secondary);
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+  height: 30px;
+}
+
+.btn-icon:hover {
+  color: var(--primary-light);
+  background: transparent;
+}
+
+.form-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form-line .input-box {
+  flex: 1;
+}
+
+.form-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.form-message {
+  padding: 5px;
+  border: 1px dashed var(--warn);
+  color: var(--warn);
+}
+
+.form-message.success {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.form-message.error {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  font-size: 0.9rem;
+}
+
+.table thead {
+  background-color: var(--bg-dark);
+}
+
+.table th,
+.table td {
+  padding: 0.3rem 0.5rem;
+  text-align: center;
+  border: var(--border);
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: var(--bg-dark);
+}
+
+.table tbody tr:hover {
+  background-color: var(--bg-light);
+}
+
+.table tbody td .actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.table tbody td .actions button {
+  font-size: 1.2rem;
+  padding: 0 0.2rem;
+  height: auto;
+}
